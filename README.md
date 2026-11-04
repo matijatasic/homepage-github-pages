@@ -305,10 +305,9 @@ Seit dem 18.10.2026 gibt es wieder ein Kontaktformular. Es öffnet beim Absenden
 ## 14. Offene Punkte
 
 1. Optional: die drei weiteren A- und AAAA-Adressen von GitHub Pages ergänzen, für mehr Ausfallsicherheit.
-2. Datenschutzerklärung um die lokale Quiz-Bestenliste (localStorage) ergänzen.
-3. Profil: 15 oder 16 Jahre Beratung abgleichen (Lebenslauf nennt 16).
-4. Optional: PDF-Dokumentation auf den aktuellen Stand bringen.
-5. Späteres Heimserver-Projekt: DynDNS auf einer Subdomain statt auf der Hauptdomain.
+2. Datenschutzerklärung um die lokale Quiz-Bestenliste ergänzen (PR #78 der Seite, offen).
+3. Optional: PDF-Dokumentation auf den aktuellen Stand bringen.
+4. Späteres Heimserver-Projekt: DynDNS auf einer Subdomain statt auf der Hauptdomain.
 
 ## 15. Anhang
 
