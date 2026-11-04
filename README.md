@@ -1,19 +1,27 @@
 # Persönliche Homepage auf GitHub Pages
 
-**Abschlussdokumentation** · Umsetzung: Matija Tasic · Stand: 16.10.2026
+**Projektdokumentation** · Umsetzung: Matija Tasic · Erstveröffentlichung: 16.10.2026 · Stand: 04.11.2026
 
 Eigene Homepage unter `matija-tasic.de`: statisch gebaut, bei GitHub Pages gehostet und über die Domain bei Strato erreichbar.
 
-**Live:** [matija-tasic.de](https://matija-tasic.de) · **PDF:** [Abschlussdokumentation_Homepage.pdf](Abschlussdokumentation_Homepage.pdf) · **Quellcode der Seite:** [matijatasic.github.io](https://github.com/matijatasic/matijatasic.github.io)
+**Live:** [matija-tasic.de](https://matija-tasic.de) · **PDF (Stand 16.10.2026, erste Version):** [Abschlussdokumentation_Homepage.pdf](Abschlussdokumentation_Homepage.pdf) · **Quellcode der Seite:** [matijatasic.github.io](https://github.com/matijatasic/matijatasic.github.io)
+
+> **Hinweis:** Diese README beschreibt den aktuellen Stand vom 04.11.2026. Das PDF dokumentiert die erste Version vom 16.10.2026 (Aufbau, Domain, DNS, HTTPS). Alle Änderungen seither stehen in [Kapitel 16](#16-weiterentwicklung-seit-der-ersten-version).
 
 ## 1. Zusammenfassung
 
-Die persönliche Homepage ist als statische Seite mit HTML, CSS und etwas JavaScript umgesetzt und läuft über GitHub Pages unter der eigenen Domain `matija-tasic.de`. Die Gestaltung lehnt sich an Bewerbung und Projektdokumentation an: dunkle Seitenleiste, Petrol als Akzentfarbe und eine durchgehende „Leitung“, die die Kapitel beim Scrollen wie Ports in einem Netzplan verbindet. Die Domain wurde dafür bei Strato aufgeräumt: alte Subdomains und DynDNS entfernt, die Einträge auf GitHub gesetzt und eine Kontaktadresse eingerichtet.
+Die persönliche Homepage ist als statische Seite mit HTML, CSS und JavaScript umgesetzt und läuft über GitHub Pages unter der eigenen Domain `matija-tasic.de`. Sie dient als Bewerbungsportfolio: Sie stellt Matija und seine Projekte potenziellen Arbeitgebern vor. Ein Gewerbe besteht nicht.
+
+Die erste Version vom 16.10.2026 („Dossier“ mit dunkler Seitenleiste) wurde bis zum 04.11.2026 in 77 Pull Requests weiterentwickelt. Heute hat die Seite eine Kopfleiste statt der Seitenleiste, das Layout „Netzplan“ in drei Farben (Schiefer, Kupfer, Türkis) auf cremefarbenem Grund, eigene Seiten für IT-Tools und ein Terminal-Quiz sowie Impressum, Datenschutzerklärung und Kontaktformular. Die Domain wurde zu Beginn bei Strato aufgeräumt: alte Subdomains und DynDNS entfernt, die Einträge auf GitHub gesetzt und eine Kontaktadresse eingerichtet.
 
 **Ergebnis:**
 
 - Homepage live unter `matija-tasic.de`, veröffentlicht automatisch bei jedem Push auf `main`
+- Startseite mit Slogan „IT verstehen. KI gezielt nutzen.“, Netzplan-Grafik, Schwerpunkten, Profil, Weiterbildungen, Projekten und Kontakt
+- Seite „IT-Tools“ mit sieben Werkzeugen und Seite „Terminal“ mit drei Quiz-Modi
+- Impressum, Datenschutzerklärung und Kontaktformular (öffnet das E-Mail-Programm, kein Formular-Dienst)
 - Deutsch und Englisch per Schalter, helle und dunkle Darstellung, für Handy und Desktop
+- Suchmaschinen-Grundlagen: Canonical, Vorschaubild, strukturierte Daten, Sitemap, Search Console bestätigt
 - Verschlüsselt über HTTPS mit Zertifikat von Let’s Encrypt, http wird automatisch umgeleitet
 - Keine Cookies, kein Tracking, keine externen Schriften oder Dienste
 - DNS bei Strato sauber auf GitHub umgestellt, alte Einträge und DynDNS entfernt
@@ -50,7 +58,6 @@ Die persönliche Homepage ist als statische Seite mit HTML, CSS und etwas JavaSc
 
 - Endgültige Texte und Projektinhalte
 - Nextcloud und Reverse Proxy zu Hause (eigenes Projekt)
-- Kontaktformular (bewusst entfallen)
 - Analyse- oder Tracking-Werkzeuge
 
 ## 3. Anforderungen
@@ -66,8 +73,10 @@ Die Anforderungen wurden zu Beginn gemeinsam erhoben. Es wurde nichts ergänzt, 
 | Reines HTML/CSS | Kein Framework, kein Build-Schritt |
 | Repository `matijatasic.github.io` | Öffentliches Repository, Veröffentlichung aus `main` |
 | Deutsch mit Schalter auf Englisch | Alle Texte doppelt gepflegt, Wahl wird gemerkt |
-| Hell/Dunkel-Schalter | Folgt der Systemeinstellung, Wahl wird gemerkt |
-| Kontaktmöglichkeit | E-Mail-Adresse und GitHub-Profil im Kapitel Kontakt |
+| Hell/Dunkel-Schalter | Seite startet hell, Wahl gilt für den laufenden Besuch (erste Version: folgte der Systemeinstellung) |
+| Kontaktmöglichkeit | E-Mail-Adresse und Kontaktformular im Kapitel Kontakt (seit 18.10.2026) |
+| Bewerbungsportfolio für Arbeitgeber (18.10.2026) | Profil, Weiterbildungen und Projekte stehen vorn im Menü, Extras wie IT-Tools und Terminal sind abgesetzt |
+| Impressum und Datenschutzerklärung (18.10.2026) | Eigene Seiten, Impressum und Datenschutz mit `noindex` |
 
 ## 4. Architektur
 
@@ -78,47 +87,79 @@ Die Anforderungen wurden zu Beginn gemeinsam erhoben. Es wurde nichts ergänzt, 
 | Strato | Registrar und DNS der Domain, Postfach für E-Mails |
 | GitHub Repository | Quellcode der Seite, jeder Push auf `main` löst die Veröffentlichung aus |
 | GitHub Pages | Ausliefern der Seite, TLS-Zertifikat für die eigene Domain |
-| Browser | Sprache und Darstellung werden lokal im Browser gemerkt (localStorage) |
+| Browser | Sprache wird gemerkt (localStorage), die Darstellung nur für den laufenden Besuch (sessionStorage), die Quiz-Bestenliste lokal (localStorage) |
 
 ## 5. Gestaltung und Aufbau der Seite
 
-### 5.1 Konzept „Dossier“
+### 5.1 Aktuelles Konzept „Netzplan“ (seit 03.11.2026)
 
-Die Seite liest sich wie ein technisches Dossier: Links eine dunkle Seitenleiste mit Portrait, Kapitelübersicht und den Schaltern, rechts der Inhalt auf einem feinen Rasterhintergrund. Die Kapitel tragen nummerierte Köpfe wie `01 PROFIL`, genau wie in der Projektdokumentation.
+Aus rund 46 Entwürfen hat Matija am 03.11.2026 den Entwurf 38 gewählt. Es gibt nur drei Farben: **Schiefer** als Grundton, **Kupfer** für Wichtiges und KI, **Türkis** für Netzwerk. Der Hintergrund ist ein helles Creme, etwa die Hälfte der Fläche ist hell. Die Seite startet hell, die Terminal-Seite ist immer dunkel.
 
-Der Wiedererkennungswert entsteht durch die **Leitung**: Eine Linie läuft beim Scrollen am Inhalt entlang, schaltet die Kapitel nacheinander „online“ und zweigt zu jeder Projekt- und Kompetenzkarte ab. In der Kapitelübersicht leuchten passend dazu kleine LEDs. Unten rechts zeigt ein Seitenzähler wie im PDF das aktuelle Kapitel.
+![Abb. 2 · Startseite in heller Darstellung (Stand 04.11.2026).](img/stand-2026-11/startseite-hell.png)
 
-![Abb. 2 · Startseite in heller Darstellung.](img/start-hell.png)
-
-| Element | Umsetzung |
+| Bereich | Inhalt |
 |---|---|
-| Schriften | Inter und Inter Display für Text, DejaVu Sans Mono für Kennungen |
-| Farben | Petrol `#17a398` als Akzent, dunkle Seitenleiste, eigene Farbwerte für Dunkel |
-| Kapitel | 00 Start · 01 Profil · 02 Kompetenzen · 03 Projekte · 04 Kontakt |
-| Projekte | Status je Karte: abgeschlossen, in Arbeit, geplant |
-| Handy | Seitenleiste wird zum Menü, Leitung und Karten passen sich an |
-| Barrierefreiheit | Sprunglink zum Inhalt, Tastaturbedienung, reduzierte Bewegung wird respektiert |
+| Kopfleiste | Links Sprache und Ansicht, in der Mitte eine dunkle Kapsel mit Start, Profil, Weiterbildungen, Projekte, rechts IT-Tools und Terminal als dezente Links, dann der Kontakt-Button in Kupfer |
+| Start | Slogan „IT verstehen. KI gezielt nutzen.“, kurzer Text, Button „Projekte ansehen“, Netzplan als Topologie (Internet, OPNsense, Core-Switch, Proxmox, VLAN-Zonen, KI-Lab) |
+| Schwerpunkte | KI-Engineering hervorgehoben, dazu Netzwerk, Firewall, Virtualisierung, Linux, Microsoft 365 |
+| 01 Profil | Dunkle Fotokarte mit Steckbrief und Werkzeug-Chips, Text „Aus Leidenschaft. Zum Beruf gemacht.“, drei Fenster mit Prüfungsergebnis, Weiterbildungen und Berufserfahrung |
+| 02 Weiterbildungen | Ein großes Fenster `~/weiterbildungen` mit 20 Kursen seit 2024 in sechs Themenfeldern |
+| 03 Projekte | Karten im Fenster-Stil: Proxmox Backup Server, Netzsegmentierung mit OPNsense, diese Homepage, Nextcloud (geplant) |
+| 04 Kontakt | Kontaktformular mit Linien-Feldern und E-Mail-Adresse |
 
-![Abb. 3 · Kontakt in dunkler Darstellung und Startseite auf dem Handy.](img/kontakt-dunkel-handy.png)
+![Abb. 3 · Profil mit Fotokarte, Text und Eckdaten.](img/stand-2026-11/profil.png)
+
+**Weitere Seiten**
+
+| Seite | Inhalt |
+|---|---|
+| `werkzeuge.html` (IT-Tools) | Subnetzrechner, VLAN-Planer, Port-Lexikon (Well-known-Ports bis 1023), Passwortgenerator, Hash-Rechner, Befehls-Baukasten (30 Linux-Vorlagen), Binär-Umrechner. Alles läuft nur im Browser |
+| `terminal.html` (Terminal) | Quiz im Kali-Stil mit den Modi Binär, Subnetz und Ports: fünf Fragen pro Runde, je drei Antworten, 30 Sekunden mit Zeitbonus, lokale Bestenliste und Stufen Junior/Mid-Level/Senior. Links ein „Cheatstore“ mit Verweisen auf passende IT-Tools |
+| `impressum.html`, `datenschutz.html` | Rechtstexte, für Suchmaschinen ausgeblendet |
+| `404.html` | Eigene Fehlerseite |
+
+![Abb. 4 · IT-Tools.](img/stand-2026-11/it-tools.png)
+
+![Abb. 5 · Terminal-Seite mit Quiz.](img/stand-2026-11/terminal.png)
+
+<img src="img/stand-2026-11/startseite-handy.png" alt="Abb. 6 · Startseite auf dem Handy." width="300">
+
+*Abb. 6 · Startseite auf dem Handy.*
 
 ### 5.2 Technik
 
 | Datei | Inhalt |
 |---|---|
 | `index.html` | Startseite mit allen Kapiteln, Texte auf Deutsch und Englisch |
-| `404.html` | Eigene Fehlerseite |
+| `werkzeuge.html`, `terminal.html` | IT-Tools und Terminal-Quiz |
+| `impressum.html`, `datenschutz.html`, `404.html` | Rechtstexte und Fehlerseite |
 | `assets/css/site.css` | Gestaltung, Farbwerte für hell und dunkel, Handy-Ansicht |
-| `assets/js/site.js` | Sprach- und Darstellungsschalter, Leitung, Seitenzähler |
-| `assets/fonts/` | Schriften als WOFF2 mit Lizenztexten |
-| `assets/img/` | Portrait und Favicon |
+| `assets/js/site.js` | Sprach- und Darstellungsschalter, Kopfleiste, Formular |
+| `assets/js/quiz.js` | Terminal-Quiz |
+| `assets/js/ipcalc.js`, `ports.js`, `pwgen.js`, `hash.js`, `cmds.js`, `binconv.js`, `tools.js` | Logik und Oberfläche der IT-Tools |
+| `assets/js/config.js` | Formular-Einstellung (`formEndpoint` bleibt leer, das Formular öffnet das E-Mail-Programm) |
+| `tests/*.test.js` | Sieben Testdateien für die Rechenlogik, laufen mit Node ohne Abhängigkeiten |
+| `assets/fonts/` | Inter, DejaVu Sans Mono und Oxanium als WOFF2 mit Lizenztexten |
+| `assets/img/` | Portrait, Favicon, Vorschaubild für soziale Netze |
+| `robots.txt`, `sitemap.xml` | Hinweise für Suchmaschinen |
 | `CNAME` | Eigene Domain für GitHub Pages |
 | `.nojekyll` | Seite wird unverändert ausgeliefert, ohne Jekyll |
 
 **Sprache:** Jeder Text steht doppelt im HTML, einmal mit `data-l="de"` und einmal mit `data-l="en"`. Der Schalter setzt nur die Sprache der Seite, das CSS blendet die jeweils andere Fassung aus. Ein kurzes Skript im Kopf der Seite stellt die gemerkte Wahl schon vor dem ersten Zeichnen her, damit nichts flackert.
 
-**Darstellung:** Ohne Wahl folgt die Seite der Systemeinstellung. Ein Klick legt hell oder dunkel fest und merkt sich das.
+**Darstellung:** Die Seite startet hell. Eine Wahl gilt nur für den laufenden Besuch. Die Terminal-Seite ist immer dunkel und setzt die Wahl beim Verlassen zurück.
 
-**Datenschutz by Design:** Keine Cookies, kein Tracking, keine Schriften oder Skripte von fremden Servern. Im Browser werden nur Sprache und Darstellung gespeichert.
+**Cache-Buster:** `site.css` und `site.js` werden mit `?v=JJJJMMTTnn` eingebunden. Bei jeder Änderung an CSS oder JS wird die Nummer in allen HTML-Dateien hochgezählt, damit Browser keine alte Fassung zeigen.
+
+**Datenschutz by Design:** Keine Cookies, kein Tracking, keine Schriften oder Skripte von fremden Servern. Im Browser werden nur Sprache, Darstellung und die Quiz-Bestenliste gespeichert.
+
+### 5.3 Erste Version „Dossier“ (16.10.2026)
+
+Die erste Version las sich wie ein technisches Dossier: links eine dunkle Seitenleiste mit Portrait, Kapitelübersicht und Schaltern, Petrol `#17a398` als Akzent und eine „Leitung“, die beim Scrollen die Kapitel wie Ports in einem Netzplan verband. Kapitel waren 00 Start, 01 Profil, 02 Kompetenzen, 03 Projekte, 04 Kontakt.
+
+![Abb. 7 · Erste Version vom 16.10.2026, Startseite hell.](img/start-hell.png)
+
+![Abb. 8 · Erste Version vom 16.10.2026, Kontakt dunkel und Handy.](img/kontakt-dunkel-handy.png)
 
 ## 6. Veröffentlichung auf GitHub Pages
 
@@ -130,7 +171,7 @@ Der Wiedererkennungswert entsteht durch die **Leitung**: Eine Linie läuft beim 
 | Domain-Verifizierung | TXT-Eintrag im GitHub-Profil bestätigt |
 | HTTPS erzwingen | aktiviert, Zertifikat von Let’s Encrypt ausgestellt |
 
-> **Ablauf:** Änderung lokal prüfen, als Matija Tasic committen, auf `main` pushen. GitHub baut und veröffentlicht die Seite danach selbst, in der Regel innerhalb einer Minute.
+> **Ablauf (seit 16.10.2026):** Jede Änderung entsteht in einem eigenen Branch mit Pull Request. Zuvor gibt es meist mehrere Varianten als Vorschaubilder für PC und Handy, Matija wählt eine aus. Nach der Umsetzung folgen Vorher/Nachher-Bilder, gemergt wird erst nach Matijas OK (Rebase-Merge, Autor bleibt Matija). GitHub veröffentlicht die Seite danach selbst, in der Regel innerhalb einer Minute.
 
 **Commits:** Alle Commits stehen nur unter dem Namen Matija Tasic und nutzen die private noreply-Adresse von GitHub. So bleibt die echte E-Mail-Adresse verborgen.
 
@@ -175,7 +216,7 @@ GitHub Pages stellt für die eigene Domain automatisch ein Zertifikat von Let’
 
 Die Adresse `kontakt@matija-tasic.de` ist bei Strato als Alias auf ein bestehendes Postfach eingerichtet. Mails an die Adresse landen dort und sind per Webmail oder IMAP abrufbar. Eine Testmail von einer externen Adresse ist angekommen.
 
-Ein Kontaktformular gibt es bewusst nicht. Besucher schreiben direkt per E-Mail. Das spart einen externen Formular-Dienst und hält die Seite frei von fremden Diensten.
+Seit dem 18.10.2026 gibt es wieder ein Kontaktformular. Es öffnet beim Absenden das E-Mail-Programm des Besuchers mit vorausgefüllter Nachricht (`mailto`). Bewusst wird kein Formular-Dienst genutzt: kein Konto, kein Tarif, keine fremden Server.
 
 ## 10. Tests
 
@@ -192,6 +233,9 @@ Ein Kontaktformular gibt es bewusst nicht. Besucher schreiben direkt per E-Mail.
 | Browser-Konsole | ok, keine Fehler |
 | Zertifikat für HTTPS | ok, ausgestellt, http wird auf https umgeleitet |
 | Aufruf über `www.matija-tasic.de` | ok, Zertifikat gilt auch für www |
+| Unit-Tests der IT-Tools und des Quiz (7 Testdateien, 04.11.2026) | ok |
+| Jede Änderung seit 18.10.2026: Vorher/Nachher-Bilder für PC, Handy, hell, dunkel, Englisch | ok, vor jedem Merge von Matija geprüft |
+| Google Search Console: Bestätigung und Sitemap (21.10.2026) | ok |
 
 ## 11. Entscheidungen
 
@@ -206,6 +250,13 @@ Ein Kontaktformular gibt es bewusst nicht. Besucher schreiben direkt per E-Mail.
 | 16.10.2026 | Kein Kontaktformular | Kontakt per E-Mail reicht, kein externer Formular-Dienst nötig |
 | 16.10.2026 | Kein Impressum und keine Datenschutzerklärung | Bewusste Entscheidung des Betreibers, Seiten bei Bedarf aus der Git-Historie wiederherstellbar |
 | 16.10.2026 | Automatische Browser-Übersetzung abgeschaltet | Die Seite hat einen eigenen Sprachschalter |
+| 18.10.2026 | Impressum, Datenschutzerklärung und Kontaktformular wiederhergestellt | Die Seite ist ein Bewerbungsportfolio für Arbeitgeber |
+| 18.10.2026 | Formular ohne Dienst, öffnet das E-Mail-Programm | Kein Konto, kein Tarif, keine fremden Server |
+| 20.10.2026 | Seite IT-Tools | Zeigt Praxiswissen zum Ausprobieren |
+| 21.10.2026 | SEO-Grundlagen und Search Console | Bei der Suche nach dem Namen gefunden werden |
+| 03.11.2026 | Neues Layout „Netzplan“ mit Kopfleiste, drei Farben | Moderner, klarer, Fokus auf KI-Engineering |
+| 03.11.2026 | Terminal-Quiz als eigene Seite | Die Startseite bleibt auf Profil und Projekte fokussiert |
+| 04.11.2026 | IT-Tools und Terminal rechts neben Kontakt abgesetzt | Arbeitgeber sollen zuerst Profil, Weiterbildungen und Projekte sehen |
 
 ## 12. Probleme und Lösungen
 
@@ -247,12 +298,17 @@ Ein Kontaktformular gibt es bewusst nicht. Besucher schreiben direkt per E-Mail.
 - Eine strenge Firewall wirkt auch gegen den eigenen Router. Ausnahmen so eng wie möglich halten.
 - In OPNsense werden Aliase erst mit „Anwenden“ aktiv. Die Diagnose-Seite zeigt den echten Inhalt.
 - Zweisprachige Seiten sollten die automatische Browser-Übersetzung abschalten.
+- Ohne Cache-Buster zeigen Browser nach einer Änderung oft noch die alte CSS- oder JS-Datei.
+- Mehrere Varianten als Bilder nebeneinander führen schneller zu einer Entscheidung als Beschreibungen.
+- Ein Bild immer im Original sichern, bevor es bearbeitet wird.
 
 ## 14. Offene Punkte
 
 1. Optional: die drei weiteren A- und AAAA-Adressen von GitHub Pages ergänzen, für mehr Ausfallsicherheit.
-2. Endgültige Texte und Projektinhalte einpflegen.
-3. Späteres Heimserver-Projekt: DynDNS auf einer Subdomain statt auf der Hauptdomain.
+2. Datenschutzerklärung um die lokale Quiz-Bestenliste (localStorage) ergänzen.
+3. Profil: 15 oder 16 Jahre Beratung abgleichen (Lebenslauf nennt 16).
+4. Optional: PDF-Dokumentation auf den aktuellen Stand bringen.
+5. Späteres Heimserver-Projekt: DynDNS auf einer Subdomain statt auf der Hauptdomain.
 
 ## 15. Anhang
 
@@ -276,3 +332,24 @@ Ein Kontaktformular gibt es bewusst nicht. Besucher schreiben direkt per E-Mail.
 ### 15.2 Projektverwaltung
 
 Das Projekt wurde wie das Segmentierungsprojekt in Notion geführt: Projektseite, Aufgabendatenbank „Aufgaben Homepage“ mit Phasen von Bedarf bis Abschluss und ein Projektjournal. Jede Änderung an DNS und Firewall wurde vorher mit Risiko und Rückweg benannt und erst nach Freigabe umgesetzt.
+
+## 16. Weiterentwicklung seit der ersten Version
+
+Alle Änderungen liefen über Pull Requests im Repository der Seite. Die Nummern verweisen auf die PRs in [matijatasic.github.io](https://github.com/matijatasic/matijatasic.github.io/pulls?q=is%3Apr+is%3Amerged).
+
+| Datum | PRs | Änderung |
+|---|---|---|
+| 16.10.2026 | #1–#7 | Seitenleiste symmetrisch, Projekt-Links als Schaltflächen, Karten hellgrün, Dunkelmodus anthrazit |
+| 18.10.2026 | #8–#13 | Impressum, Datenschutzerklärung und Kontaktformular wiederhergestellt, Kontakttext auf Arbeitgeber ausgerichtet, Projekte angepasst |
+| 20.10.2026 | #14–#24 | Seite IT-Tools mit Subnetzrechner, VLAN-Planer, Port-Lexikon, Passwortgenerator, Hash-Rechner; Kapitel Kompetenzen entfernt; Rubrik Tipps & Tricks (später wieder entfernt) |
+| 21.10.2026 | #25–#43 | Befehls-Baukasten (nur Linux), SEO und Search Console, Startseite mit sechs Kacheln, Mini-Terminal mit Subnetz-, Port- und Binär-Quiz |
+| 03.11.2026 | #44 | Neues Layout „Netzplan“ für die ganze Seite, Kopfleiste statt Seitenleiste, Start hell |
+| 03.11.2026 | #45–#56 | Binär-Umrechner, IT-Tools als dunkle Werkbank-Karten, Creme-Hintergrund, Projekt-Karten als Fenster, Kopfleiste als Schiefer-Insel, Schriftzug und Monogramm in Oxanium, Kontaktformular mit Linien-Feldern |
+| 03.11.2026 | #57–#61, #66 | Terminal-Quiz im Kali-Stil mit Zeitbonus, Bestenliste und Stufen, Explorer mit Cheatstore, eigene Seite `terminal.html`, immer dunkel |
+| 03.11.2026 | #62–#69, #72–#74 | Profil neu: Text, Fotokarte links, Prüfungsergebnis 100/100 mündlich und 92/100 schriftlich, Blocksatz, bearbeitetes Profilbild |
+| 03.11.2026 | #70–#71 | Abschnitt Weiterbildungen als großes Fenster mit Menüpunkt |
+| 03.11.2026 | #75 | Slogan „IT verstehen. KI gezielt nutzen.“, dezentere Überschrift, Kontakt-Button in Kupfer |
+| 04.11.2026 | #76 | Fotokarte im Profil mit Steckbrief und Werkzeug-Chips |
+| 04.11.2026 | #77 | MT aus der Kopfleiste entfernt, IT-Tools und Terminal neben Kontakt abgesetzt |
+
+![Abb. 9 · Startseite in dunkler Darstellung (Stand 04.11.2026).](img/stand-2026-11/startseite-dunkel.png)
