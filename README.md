@@ -218,6 +218,8 @@ Die Adresse `kontakt@matija-tasic.de` ist bei Strato als Alias auf ein bestehend
 
 Seit dem 18.10.2026 gibt es wieder ein Kontaktformular. Es öffnet beim Absenden das E-Mail-Programm des Besuchers mit vorausgefüllter Nachricht (`mailto`). Bewusst wird kein Formular-Dienst genutzt: kein Konto, kein Tarif, keine fremden Server.
 
+**Auftragsverarbeitung:** Mit STRATO besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Er wurde am 26.04.2026 abgeschlossen und am 04.11.2026 auf die aktuelle Version gebracht (Kunden-Login → Ihre Kundendaten → Auftragsverarbeitung). Laut STRATO werden die Daten nur in den Rechenzentren Berlin und Karlsruhe verarbeitet. Die Datenschutzerklärung nennt STRATO seit dem 04.11.2026 als E-Mail-Anbieter.
+
 ## 10. Tests
 
 | Test | Ergebnis |
@@ -236,6 +238,7 @@ Seit dem 18.10.2026 gibt es wieder ein Kontaktformular. Es öffnet beim Absenden
 | Unit-Tests der IT-Tools und des Quiz (7 Testdateien, 04.11.2026) | ok |
 | Jede Änderung seit 18.10.2026: Vorher/Nachher-Bilder für PC, Handy, hell, dunkel, Englisch | ok, vor jedem Merge von Matija geprüft |
 | Google Search Console: Bestätigung und Sitemap (21.10.2026) | ok |
+| Auftragsverarbeitungsvertrag mit STRATO, aktuelle Version (04.11.2026) | ok, abgeschlossen |
 
 ## 11. Entscheidungen
 
