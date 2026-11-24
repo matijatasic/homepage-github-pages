@@ -1,31 +1,32 @@
 # Persönliche Homepage auf GitHub Pages
 
-**Projektdokumentation** · Umsetzung: Matija Tasic · Erstveröffentlichung: 16.10.2026 · Stand: 04.11.2026
+**Projektdokumentation** · Umsetzung: Matija Tasic · Erstveröffentlichung: 16.10.2026 · Stand: 24.11.2026
 
 Eigene Homepage unter `matija-tasic.de`: statisch gebaut, bei GitHub Pages gehostet und über die Domain bei Strato erreichbar.
 
 **Live:** [matija-tasic.de](https://matija-tasic.de) · **PDF (Stand 04.11.2026, PR #106):** [Abschlussdokumentation_Homepage.pdf](Abschlussdokumentation_Homepage.pdf) · **Erste Fassung (16.10.2026):** [Abschlussdokumentation_Homepage_2026-10-16.pdf](Abschlussdokumentation_Homepage_2026-10-16.pdf) · **Quellcode der Seite:** [matijatasic.github.io](https://github.com/matijatasic/matijatasic.github.io)
 
-> **Hinweis:** Diese README und das PDF beschreiben den Stand vom 04.11.2026 bis einschließlich PR #106 der Seite. Das PDF ist eine Druckfassung dieser README. Die erste Fassung vom 16.10.2026 bleibt als eigenes PDF erhalten. Alle Änderungen seit der ersten Version stehen in [Kapitel 16](#16-weiterentwicklung-seit-der-ersten-version).
+> **Hinweis:** Diese README beschreibt den Stand vom 24.11.2026 bis einschließlich PR #150 der Seite. Die PDF-Fassungen vom 16.10.2026 und 04.11.2026 (`Abschlussdokumentation_Homepage.pdf`, Dateiname bleibt wegen bestehender Links) zeigen ältere Stände; eine Druckfassung dieses Stands ist noch offen (siehe [Kapitel 14](#14-offene-punkte)). Alle Änderungen seit der ersten Version stehen in [Kapitel 16](#16-weiterentwicklung-seit-der-ersten-version). Wie die Seite ohne KI gepflegt wird, steht in [PFLEGE.md](https://github.com/matijatasic/matijatasic.github.io/blob/main/PFLEGE.md) im Repository der Seite.
 
 ## 1. Zusammenfassung
 
 Die persönliche Homepage ist als statische Seite mit HTML, CSS und JavaScript umgesetzt und läuft über GitHub Pages unter der eigenen Domain `matija-tasic.de`. Sie dient als Bewerbungsportfolio: Sie stellt Matija und seine Projekte potenziellen Arbeitgebern vor. Ein Gewerbe besteht nicht.
 
-Die erste Version vom 16.10.2026 („Dossier“ mit dunkler Seitenleiste) wurde bis zum 04.11.2026 in 106 Pull Requests weiterentwickelt. Heute hat die Seite eine Kopfleiste statt der Seitenleiste, das Layout „Netzplan“ in drei Farben (Schiefer, Kupfer, Türkis) auf cremefarbenem Grund, eigene Seiten für IT-Tools und ein Terminal-Quiz sowie Impressum, Datenschutzerklärung und Kontaktformular. Die Domain wurde zu Beginn bei Strato aufgeräumt: alte Subdomains und DynDNS entfernt, die Einträge auf GitHub gesetzt und eine Kontaktadresse eingerichtet.
+Die erste Version vom 16.10.2026 („Dossier“ mit dunkler Seitenleiste) wurde bis zum 24.11.2026 in 150 Pull Requests weiterentwickelt. Heute hat die Seite eine Kopfleiste statt der Seitenleiste, das Layout „Netzplan“ in drei Farben (Schiefer, Kupfer, Türkis) auf cremefarbenem Grund, eigene Seiten für IT-Tools und ein Terminal-Quiz mit fünf Spielen, eine Besucherstatistik ohne Cookies sowie Impressum, Datenschutzerklärung und Kontaktformular. Die Domain wurde zu Beginn bei Strato aufgeräumt: alte Subdomains und DynDNS entfernt, die Einträge auf GitHub gesetzt und eine Kontaktadresse eingerichtet.
 
 **Ergebnis:**
 
 - Homepage live unter `matija-tasic.de`, veröffentlicht automatisch bei jedem Push auf `main`
-- Startseite mit Slogan „IT verstehen. KI gezielt nutzen.“, Netzplan-Grafik, Schwerpunkten, Profil, Weiterbildungen, Projekten und Kontakt
-- Seite „IT-Tools“ mit acht Werkzeugen und Seite „Terminal“ mit drei Quiz-Modi, Hilfe und lokaler Rangliste
+- Startseite mit Slogan „IT verstehen. KI gezielt nutzen.“, Netzplan-Grafik, Schwerpunkten, Profil, Zertifikaten, Projekten und Kontakt
+- Seite „IT-Tools“ mit acht Werkzeugen und Seite „Terminal“ mit fünf Spielen, Hilfe und lokalem Rekord
 - Impressum, Datenschutzerklärung und Kontaktformular (öffnet das E-Mail-Programm, kein Formular-Dienst)
 - Deutsch und Englisch per Schalter, helle und dunkle Darstellung, für Handy und Desktop
 - Suchmaschinen-Grundlagen: Canonical, Vorschaubild, strukturierte Daten, Sitemap, Search Console bestätigt
 - Verschlüsselt über HTTPS mit Zertifikat von Let’s Encrypt, http wird automatisch umgeleitet
-- Keine Cookies, kein Tracking, keine externen Schriften oder Dienste
+- Keine Cookies, keine Nutzerprofile, keine externen Schriften; einziger Drittdienst neben Hosting und E-Mail ist GoatCounter für eine cookielose Besucherstatistik
 - DNS bei Strato sauber auf GitHub umgestellt, alte Einträge und DynDNS entfernt
-- Kontakt über `kontakt@matija-tasic.de`, Zustellung getestet
+- Kontakt über `kontakt@matija-tasic.de` (Zustellung getestet) und LinkedIn
+- Pflege-Anleitung `PFLEGE.md` im Repository der Seite, damit die Seite auch ohne KI-Werkzeug gepflegt werden kann
 - Alle Commits nur mit Matija Tasic als Autor
 
 ## 2. Ausgangslage und Ziel
@@ -74,20 +75,22 @@ Die Anforderungen wurden zu Beginn gemeinsam erhoben. Es wurde nichts ergänzt, 
 | Repository `matijatasic.github.io` | Öffentliches Repository, Veröffentlichung aus `main` |
 | Deutsch mit Schalter auf Englisch | Alle Texte doppelt gepflegt, Wahl wird gemerkt |
 | Hell/Dunkel-Schalter | Seite startet hell, Wahl gilt für den laufenden Besuch (erste Version: folgte der Systemeinstellung) |
-| Kontaktmöglichkeit | E-Mail-Adresse und Kontaktformular im Kapitel Kontakt (seit 18.10.2026) |
-| Bewerbungsportfolio für Arbeitgeber (18.10.2026) | Profil, Weiterbildungen und Projekte stehen vorn im Menü, Extras wie IT-Tools und Terminal sind abgesetzt |
-| Impressum und Datenschutzerklärung (18.10.2026) | Eigene Seiten, Impressum und Datenschutz mit `noindex` |
+| Kontaktmöglichkeit | E-Mail-Adresse und Kontaktformular im Kapitel Kontakt (seit 18.10.2026), LinkedIn (seit 04.11.2026) |
+| Bewerbungsportfolio für Arbeitgeber (18.10.2026) | Profil, Zertifikate und Projekte stehen vorn im Menü, Extras wie IT-Tools und Terminal sind abgesetzt |
+| Impressum und Datenschutzerklärung (18.10.2026) | Eigene Seiten, Impressum und Datenschutz mit `noindex`; Impressum seit 04.11.2026 nach § 18 Abs. 1 MStV |
+| Pflege ohne KI (24.11.2026) | `PFLEGE.md` mit Werkzeugen, Ablauf, Rezepten und Checkliste; README der Seite vollständig |
 
 ## 4. Architektur
 
-![Abb. 1 · Weg einer Anfrage: Der Besucher fragt das DNS bei Strato, lädt die Seite über HTTPS von GitHub Pages; Mails an die Domain landen im Strato-Postfach.](img/architektur.svg)
+![Abb. 1 · Weg einer Anfrage: Der Besucher fragt das DNS bei Strato, lädt die Seite über HTTPS von GitHub Pages; Mails an die Domain landen im Strato-Postfach. GoatCounter (seit 05.11.2026) ist in der Grafik noch nicht eingezeichnet.](img/architektur.svg)
 
 | Baustein | Aufgabe |
 |---|---|
 | Strato | Registrar und DNS der Domain, Postfach für E-Mails |
 | GitHub Repository | Quellcode der Seite, jeder Push auf `main` löst die Veröffentlichung aus |
 | GitHub Pages | Ausliefern der Seite, TLS-Zertifikat für die eigene Domain |
-| Browser | Sprache wird gemerkt (localStorage), die Darstellung nur für den laufenden Besuch (sessionStorage), die Quiz-Bestenliste lokal (localStorage) |
+| GoatCounter | Besucherstatistik ohne Cookies: Zählskript von `gc.zgo.at`, Zählerstand in der Fußzeile von `matija.goatcounter.com` |
+| Browser | Sprache wird gemerkt (am PC localStorage, am Handy sessionStorage), die Darstellung nur für den laufenden Besuch (sessionStorage), Rekord, letzte Runde und Ticket-Stapel des Quiz lokal (localStorage) |
 
 ## 5. Gestaltung und Aufbau der Seite
 
@@ -95,34 +98,37 @@ Die Anforderungen wurden zu Beginn gemeinsam erhoben. Es wurde nichts ergänzt, 
 
 Aus rund 46 Entwürfen hat Matija am 03.11.2026 den Entwurf 38 gewählt. Es gibt nur drei Farben: **Schiefer** als Grundton, **Kupfer** für Wichtiges und KI, **Türkis** für Netzwerk. Der Hintergrund ist ein helles Creme, etwa die Hälfte der Fläche ist hell. Die Seite startet hell, die Terminal-Seite ist immer dunkel.
 
-![Abb. 2 · Startseite in heller Darstellung (Stand 04.11.2026, PR #106).](img/stand-2026-11/startseite-hell.png)
+![Abb. 2 · Startseite in heller Darstellung (Stand 24.11.2026, PR #150).](img/stand-2026-11-24/startseite-hell.png)
 
 | Bereich | Inhalt |
 |---|---|
-| Kopfleiste | Links die Schalter im Terminal-Stil `lang DE EN` und `theme LIGHT DARK`, in der Mitte eine dunkle Kapsel mit Start, Profil, Weiterbildungen, Projekte, rechts IT-Tools und Terminal als dezente Links, dann „Kontakt“. Auf dem Handy ein Raster mit allen Seiten statt Menü-Knopf |
+| Kopfleiste | Links die Schalter im Terminal-Stil `lang DE EN` und `theme LIGHT DARK`, in der Mitte eine dunkle Kapsel mit Start, Profil, Zertifikate, Projekte (die aktive Markierung folgt Klick und Scrollen), rechts IT-Tools und Terminal als dezente Links, dann „Kontakt“. Auf dem Handy ein Raster mit allen Seiten statt Menü-Knopf |
 | Start | Slogan „IT verstehen. KI gezielt nutzen.“ in IBM Plex Sans, kurzer Text, Button „Projekte ansehen“. Daneben der Netzplan: Internet, OPNsense als VM auf Proxmox, Core-Switch, VLAN 10 bis 40 und Management-VLAN 99, wandernde Datenpakete (ein geblocktes Paket IoT → Management in Rot), Fenster „KI-Agent überwacht“, Legende und Link zum OPNsense-Projekt auf GitHub |
 | Schwerpunkte | KI-Engineering hervorgehoben, dazu Netzwerk, Firewall, Virtualisierung, Linux, Microsoft 365 |
-| 01 Profil | Dunkle Fotokarte „IT-System-Elektroniker“ mit Steckbrief und Werkzeug-Chips, Text „Aus Leidenschaft. Zum Beruf gemacht.“, darunter ein Kennzahlen-Band: 100/100 Punkte in der mündlichen Prüfung, 20 Zertifikate (verlinkt auf die Weiterbildungen), 15 Jahre Beratung und Service |
-| 02 Weiterbildungen | Ein großes Fenster `~/weiterbildungen` mit 20 Kursen seit 2024 in sechs Themenfeldern |
-| 03 Projekte | Karten im Fenster-Stil: Proxmox Backup Server, Netzsegmentierung mit OPNsense, diese Homepage, Nextcloud (geplant) |
-| 04 Kontakt | Kontaktformular mit Linien-Feldern und E-Mail-Adresse |
+| 01 Profil | Dunkle Fotokarte „IT-System-Elektroniker“ mit Steckbrief und Werkzeug-Chips, Text „Aus Leidenschaft. Zum Beruf gemacht.“, darunter ein Kennzahlen-Band: 96/100 Punkte im Prüfungsteil IT-Systeme (IHK), 20 Zertifikate aus Weiterbildungen (verlinkt auf das Kapitel Zertifikate), 15 Jahre Beratung und Service |
+| 02 Zertifikate | Links eine Kachel mit der Gesamtzahl 20, daneben sechs Themenfelder mit Anzahl der Kurse. Jeder Eintrag zeigt Monat und Jahr und öffnet das Zertifikat (PDF oder Bild) in einem neuen Tab. AZ-900 und CompTIA Network+ sind als Kurs gekennzeichnet, weil es Kursabschlüsse und keine offiziellen Prüfungen sind |
+| 03 Projekte | Geteilte Karten: Proxmox Backup Server, Netzsegmentierung mit OPNsense, diese Homepage, Nextcloud (geplant), jeweils mit Link zur Dokumentation auf GitHub |
+| 04 Kontakt | Kontaktformular als Karte, E-Mail-Adresse und LinkedIn |
+| Fußbereich | Durchgehender Schiefer-Balken auf allen Seiten mit drei Spalten, Links zu Impressum, Datenschutz und LinkedIn sowie Besucherzähler (eindeutige Besucher, nur auf matija-tasic.de) |
 
-![Abb. 3 · Profil mit Fotokarte, Text und Eckdaten.](img/stand-2026-11/profil.png)
+![Abb. 3 · Profil mit Fotokarte, Text und Eckdaten.](img/stand-2026-11-24/profil.png)
+
+![Abb. 3a · Kapitel Zertifikate.](img/stand-2026-11-24/zertifikate.png)
 
 **Weitere Seiten**
 
 | Seite | Inhalt |
 |---|---|
 | `werkzeuge.html` (IT-Tools) | Subnetzrechner, VLAN-Planer, Port-Lexikon (Well-known-Ports bis 1023), Passwortgenerator, Hash-Rechner, Befehls-Baukasten (30 Linux-Vorlagen), Binär-Umrechner, Cron-Erklärer (Klartext und nächste Ausführungen). Alles läuft nur im Browser |
-| `terminal.html` (Terminal) | Quiz im Kali-Stil mit den Modi Binär, Subnetz und Ports, in drei Spalten: links „So geht’s“ und „Hilfe“ (Cheatsheet mit F1–F3 zu den passenden IT-Tools), in der Mitte das Spielfeld, rechts die Rangliste (Top 3 und Stufen Junior/Mid-Level/Senior). Fünf Fragen pro Runde, je drei Antworten, Zeitbonus in den ersten 30 Sekunden; danach wartet die Frage, bis eine Antwort gewählt ist |
+| `terminal.html` (Terminal) | Quiz im Kali-Stil mit fünf Spielen: `ticket.sh` (Standard, 250 Störungstickets aus dem Systemhaus-Alltag, gemischter Stapel ohne Wiederholung), `binaer.sh`, `subnetz.sh`, `ports.sh` und `firewall.sh`. Drei Spalten: links „So geht’s“ und „Hilfe“ (F1–F4 öffnen Binär-Umrechner, Subnetzrechner, Port-Lexikon und VLAN-Planer), in der Mitte das Spielfeld im Arcade-Look, rechts Rangliste als Ring zum eigenen Rekord mit letzter Runde und darunter das Antwort-Pult A/B/C. Fünf Fragen pro Runde; Frage 1 ohne Uhr, ab Frage 2 Zeitbonus in den ersten 30 Sekunden. Nach jeder Antwort Rechenweg (Binär, Subnetz) oder Port-Steckbrief; weiter per Klick oder Enter. Neuer Rekord: goldener Ring, Stempel und Konfetti, auch bei „Animationen reduzieren“ |
 | `impressum.html`, `datenschutz.html` | Rechtstexte, für Suchmaschinen ausgeblendet |
 | `404.html` | Eigene Fehlerseite |
 
-![Abb. 4 · IT-Tools.](img/stand-2026-11/it-tools.png)
+![Abb. 4 · IT-Tools.](img/stand-2026-11-24/it-tools.png)
 
-![Abb. 5 · Terminal-Seite in drei Spalten: Hilfe, Spielfeld, Rangliste.](img/stand-2026-11/terminal.png)
+![Abb. 5 · Terminal-Seite in drei Spalten: Hilfe, Spielfeld, Rangliste mit Antwort-Pult.](img/stand-2026-11-24/terminal.png)
 
-<img src="img/stand-2026-11/startseite-handy.png" alt="Abb. 6 · Startseite auf dem Handy." width="300">
+<img src="img/stand-2026-11-24/startseite-handy.png" alt="Abb. 6 · Startseite auf dem Handy." width="300">
 
 *Abb. 6 · Startseite auf dem Handy.*
 
@@ -134,7 +140,7 @@ Aus rund 46 Entwürfen hat Matija am 03.11.2026 den Entwurf 38 gewählt. Es gibt
 | `werkzeuge.html`, `terminal.html` | IT-Tools und Terminal-Quiz |
 | `impressum.html`, `datenschutz.html`, `404.html` | Rechtstexte und Fehlerseite |
 | `assets/css/site.css` | Gestaltung, Farbwerte für hell und dunkel, Handy-Ansicht |
-| `assets/js/site.js` | Sprach- und Darstellungsschalter, Kopfleiste, Formular |
+| `assets/js/site.js` | Sprach- und Darstellungsschalter, Kopfleiste, Formular, Besucherzähler |
 | `assets/js/quiz.js` | Terminal-Quiz |
 | `assets/js/ipcalc.js`, `ports.js`, `pwgen.js`, `hash.js`, `cmds.js`, `binconv.js`, `cron.js`, `tools.js` | Logik und Oberfläche der IT-Tools |
 | `assets/js/config.js` | Formular-Einstellung (`formEndpoint` bleibt leer, das Formular öffnet das E-Mail-Programm) |
@@ -149,9 +155,9 @@ Aus rund 46 Entwürfen hat Matija am 03.11.2026 den Entwurf 38 gewählt. Es gibt
 
 **Darstellung:** Die Seite startet hell, auch auf dem Handy. Eine Wahl gilt nur für den laufenden Besuch. Auf dem Handy startet die Seite immer auf Deutsch. Die Terminal-Seite ist immer dunkel und setzt die Wahl beim Verlassen zurück.
 
-**Cache-Buster:** `site.css`, `site.js`, `quiz.js` und `tools.js` werden mit `?v=JJJJMMTTnn` eingebunden. Bei jeder Änderung an CSS oder JS wird die Nummer in allen HTML-Dateien hochgezählt, damit Browser keine alte Fassung zeigen.
+**Cache-Buster:** `site.css`, `site.js`, `quiz.js`, `tools.js` und weitere Skripte werden mit `?v=JJJJMMTTnn` eingebunden. Bei jeder Änderung an CSS oder JS wird die Nummer in allen HTML-Dateien hochgezählt, damit Browser keine alte Fassung zeigen. Seit 24.11.2026 hat `site.css` auf allen Seiten dieselbe Nummer.
 
-**Datenschutz by Design:** Keine Cookies, kein Tracking, keine Schriften oder Skripte von fremden Servern. Im Browser werden nur Sprache, Darstellung und die Quiz-Bestenliste gespeichert.
+**Datenschutz by Design:** Keine Cookies, keine Nutzerprofile, keine Schriften von fremden Servern. Einziges fremdes Skript ist der Zähler von GoatCounter (ohne Cookies, IP-Adresse wird dort nicht gespeichert). Im Browser werden nur Sprache, Darstellung sowie Rekord, letzte Runde und Ticket-Stapel des Quiz gespeichert. Alles steht in der Datenschutzerklärung.
 
 ### 5.3 Erste Version „Dossier“ (16.10.2026)
 
@@ -235,7 +241,10 @@ Seit dem 18.10.2026 gibt es wieder ein Kontaktformular. Es öffnet beim Absenden
 | Browser-Konsole | ok, keine Fehler |
 | Zertifikat für HTTPS | ok, ausgestellt, http wird auf https umgeleitet |
 | Aufruf über `www.matija-tasic.de` | ok, Zertifikat gilt auch für www |
-| Unit-Tests der IT-Tools und des Quiz (8 Testdateien, 04.11.2026, Stand PR #106) | ok |
+| Unit-Tests der IT-Tools und des Quiz (8 Testdateien, 24.11.2026, Stand PR #150) | ok |
+| Logikprüfung 24.11.2026: interne Links und Anker, alle Dateien vorhanden, keine doppelten IDs, DE/EN-Texte paarweise vollständig, JSON-LD gültig, Cache-Buster `site.css` einheitlich | ok |
+| Browser-Konsole auf allen sechs Seiten (24.11.2026, Chrome, hell/dunkel, PC/Handy) | ok, keine Fehler |
+| Datenschutzerklärung gegen Code geprüft (24.11.2026): alle externen Abrufe und Browser-Speicher beschrieben | ok nach PR #150 (Zählerabruf ergänzt) |
 | Terminal: Zeitablauf mit simulierter Uhr, Frage wartet auf Antwort (04.11.2026) | ok |
 | Jede Änderung seit 18.10.2026: Vorher/Nachher-Bilder für PC, Handy, hell, dunkel, Englisch | ok, vor jedem Merge von Matija geprüft |
 | Google Search Console: Bestätigung und Sitemap (21.10.2026) | ok |
@@ -264,6 +273,13 @@ Seit dem 18.10.2026 gibt es wieder ein Kontaktformular. Es öffnet beim Absenden
 | 04.11.2026 | Handy: Raster mit allen Seiten statt Menü-Knopf, Start hell und auf Deutsch | Alle Seiten mit einem Tipp erreichbar, gleicher erster Eindruck wie am PC |
 | 04.11.2026 | Firewall-Zonen-Matrix wieder entfernt, dafür Cron-Erklärer | Für Besucher zu unübersichtlich, besonders auf dem Handy |
 | 04.11.2026 | Terminal in drei Spalten, Frage wartet nach Zeitablauf | Spielfeld, Hilfe und Rangliste klar getrennt; niemand verpasst eine Frage |
+| 04.11.2026 | Menü und Kapitel „Zertifikate“ statt „Weiterbildungen“ | Alle Einträge sind mit Nachweis verlinkt; Anker `#weiterbildungen` bleibt, damit bestehende Links funktionieren |
+| 04.11.2026 | Impressum nach § 18 Abs. 1 MStV statt § 5 DDG | § 5 DDG gilt für geschäftsmäßige Angebote; die Seite ist eine private, nicht gewerbliche Portfolioseite |
+| 05.11.2026 | Besucherzähler mit GoatCounter | Besucherzahl ohne Cookies und ohne Nutzerprofile; in der Datenschutzerklärung beschrieben |
+| 06.11.2026 | Terminal mit fünf Spielen, `ticket.sh` als Standard | Praxisnahe Helpdesk-Fragen und Firewall-Regelwerke neben den Rechenaufgaben |
+| 06.11.2026 | Rangliste als Ring zum eigenen Rekord statt Stufen | Vergleich mit dem eigenen Rekord und der Vorrunde statt Einstufung, ohne Namen |
+| 08.11.2026 | 96/100 im Prüfungsteil IT-Systeme statt 100/100 mündlich | Angabe zum Prüfungsergebnis korrigiert |
+| 24.11.2026 | Pflege-Anleitung, vollständige README, Doku nach jeder Änderung mitziehen | Seite muss auch ohne KI-Werkzeug pflegbar sein |
 
 ## 12. Probleme und Lösungen
 
@@ -311,10 +327,14 @@ Seit dem 18.10.2026 gibt es wieder ein Kontaktformular. Es öffnet beim Absenden
 
 ## 14. Offene Punkte
 
-Erledigt am 04.11.2026: Datenschutzerklärung um die Quiz-Bestenliste ergänzt (PR #78), PDF auf den aktuellen Stand gebracht. Noch offen:
+Erledigt am 24.11.2026: Datenschutzerklärung um den Zählerabruf bei `matija.goatcounter.com` ergänzt, README der Seite vervollständigt, Pflege-Anleitung angelegt, Abbildungen erneuert (PR #150). Noch offen:
 
 1. Optional: die drei weiteren A- und AAAA-Adressen von GitHub Pages ergänzen, für mehr Ausfallsicherheit.
 2. Späteres Heimserver-Projekt: DynDNS auf einer Subdomain statt auf der Hauptdomain.
+3. **Rechtliche Entscheidung GoatCounter:** Das Zählskript liest Angaben wie die Bildschirmgröße aus dem Browser. Nach Auffassung der deutschen Aufsichtsbehörden kann das unter § 25 TDDDG fallen und eine Einwilligung erfordern, auch ohne Cookies. Optionen: Zähler entfernen, Einwilligung einholen oder Restrisiko bewusst tragen. Eine EU-Änderung (Digital Omnibus) mit Ausnahme für Reichweitenmessung ist in Verhandlung, aber noch nicht in Kraft.
+4. Klären, ob mit GoatCounter ein Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO) besteht.
+5. Druckfassung (PDF) dieses Stands erzeugen.
+6. Architekturgrafik um GoatCounter ergänzen.
 
 ## 15. Anhang
 
@@ -366,4 +386,15 @@ Alle Änderungen liefen über Pull Requests im Repository der Seite. Die Nummern
 | 04.11.2026 | #100–#101 | Firewall-Zonen-Matrix kurz online, wieder entfernt; neues IT-Tool Cron-Erklärer |
 | 04.11.2026 | #102–#106 | Terminal: Cheatsheet als Hilfe, Rangliste, kompaktere Regeln, Anordnung in drei Spalten, Frage wartet nach Zeitablauf |
 
-![Abb. 9 · Startseite in dunkler Darstellung (Stand 04.11.2026, PR #106).](img/stand-2026-11/startseite-dunkel.png)
+| 04.11.2026 | #107–#109 | Menü und Kapitel „Zertifikate“, AZ-900 und CompTIA Network+ als Kurs gekennzeichnet, Schwerpunkte mit neuen Symbolen |
+| 04.11.2026 | #110 | Impressum nach § 18 Abs. 1 MStV |
+| 04.11.2026 | #111–#121 | Fußbereich als durchgehender Schiefer-Balken mit LinkedIn, Zertifikate und Projekte neu angeordnet (Raster, geteilte Karten), LinkedIn im Kontakt |
+| 05.11.2026 | #122–#126 | Alle 20 Zertifikate verlinkt, ruhiger Hover-Effekt, Einträge ohne Kursdauer, Kontaktformular als Karte |
+| 05.11.2026 | #127–#130 | Besucherzähler mit GoatCounter in der Fußzeile (eindeutige Besucher), aktive Markierung in der Kopfleiste |
+| 06.11.2026 | #131–#135 | Terminal: neue Spiele Firewall-Richter und Störungsticket, Rangliste als Ring zum Rekord, Arcade-Look, Antwort-Pult rechts |
+| 06.11.2026 | #136–#141 | Terminal: Rechenweg nach jeder Antwort (Binär, Subnetz), Port-Steckbrief, lange Antworten vollständig |
+| 06.11.2026 | #142–#148 | Terminal: 250 Störungstickets, `ticket.sh` zuerst, Frage 1 ohne Zeitbonus, gemischter Ticket-Stapel (Datenschutz ergänzt), goldener Rekord-Effekt |
+| 08.11.2026 | #149 | Profil: 96/100 im Prüfungsteil IT-Systeme statt 100/100 mündlich |
+| 24.11.2026 | #150 | Pflege-Anleitung `PFLEGE.md`, vollständige README, Datenschutz um Zählerabruf ergänzt, Cache-Buster `site.css` einheitlich |
+
+![Abb. 9 · Startseite in dunkler Darstellung (Stand 24.11.2026, PR #150).](img/stand-2026-11-24/startseite-dunkel.png)
